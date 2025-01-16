@@ -1,0 +1,11 @@
+default-character-set=utf8mb4
+default-collation=utf8mb4_unicode_ci
+schema=carelink
+allow-auto-inc='INT UNSIGNED, TINYINT UNSIGNED'
+
+[dev]
+flavor=mysql:5.7
+host=127.0.0.1
+port=3306
+user=root
+password=

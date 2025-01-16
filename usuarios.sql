@@ -1,0 +1,26 @@
+CREATE TABLE Usuarios (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    n_documento VARCHAR(255) NOT NULL,
+    nombres VARCHAR(50) NOT NULL,
+    apellidos VARCHAR(50) NOT NULL,
+    fecha_nacimiento DATE NOT NULL,
+    genero ENUM('Masculino', 'Femenino', 'Neutro') NOT NULL,
+    direccion VARCHAR(30),
+    telefono BIGINT,
+    email VARCHAR(30) UNIQUE,
+    ocupacion_quedesempeño TEXT,
+    estado_civil ENUM('Soltero', 'Casado', 'Viudo', 'Unión Libre', 'Divorciado'),
+    estado ENUM('ACTIVO', 'INACTIVO') DEFAULT 'ACTIVO',
+    fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP, -- Changed to DATETIME
+    lugar_nacimiento VARCHAR(50),
+    regimen_seguridad_social VARCHAR(50),
+    grado_escolaridad VARCHAR(50),
+    tipo_afiliacion VARCHAR(50),
+    escribe BOOLEAN DEFAULT FALSE,
+    lee BOOLEAN DEFAULT FALSE,
+    lugar_procedencia VARCHAR(50),
+    ha_estado_en_otro_centro BOOLEAN DEFAULT FALSE,
+    origen_otrocentro VARCHAR(50),
+    proteccion_exequial BOOLEAN DEFAULT FALSE,
+    nucleo_familiar ENUM('Nuclear', 'Extensa', 'Monoparental', 'Reconstituida')
+);
