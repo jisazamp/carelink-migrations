@@ -6,7 +6,7 @@ CREATE TABLE Usuarios (
     fecha_nacimiento DATE NOT NULL,
     genero ENUM('Masculino', 'Femenino', 'Neutro') NOT NULL,
     direccion VARCHAR(30),
-    telefono BIGINT,
+    telefono VARCHAR(20),
     email VARCHAR(30) UNIQUE,
     ocupacion_quedesempeño TEXT,
     estado_civil ENUM('Soltero', 'Casado', 'Viudo', 'Unión Libre', 'Divorciado'),
