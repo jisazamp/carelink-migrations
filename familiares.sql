@@ -6,6 +6,7 @@ CREATE TABLE Familiares (
     telefono VARCHAR(50),
     direccion VARCHAR(255),
     email VARCHAR(50) UNIQUE,
-    acudiente BOOL,
-    vive BOOL
+    acudiente BOOL DEFAULT FALSE,
+    vive BOOL DEFAULT FALSE,
+    is_deleted BOOL DEFAULT FALSE
 );

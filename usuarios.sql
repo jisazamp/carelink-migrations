@@ -22,5 +22,6 @@ CREATE TABLE Usuarios (
     ha_estado_en_otro_centro BOOLEAN DEFAULT FALSE,
     origen_otrocentro VARCHAR(50),
     proteccion_exequial BOOLEAN DEFAULT FALSE,
-    nucleo_familiar ENUM('Nuclear', 'Extensa', 'Monoparental', 'Reconstituida')
+    nucleo_familiar ENUM('Nuclear', 'Extensa', 'Monoparental', 'Reconstituida'),
+    is_deleted BOOL DEFAULT FALSE
 );
