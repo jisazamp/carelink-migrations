@@ -1,7 +1,7 @@
 CREATE TABLE HistoriaClinica (
     id_historiaclinica INT PRIMARY KEY AUTO_INCREMENT,
     id_usuario INT NOT NULL,
-    emer_medica BOOLEAN NOT NULL,
+    emer_medica VARCHAR(30),
     telefono_emermedica VARCHAR(17),
     motivo_ingreso TEXT,
     tipo_sangre ENUM('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-') NOT NULL,
