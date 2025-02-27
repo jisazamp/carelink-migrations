@@ -18,7 +18,7 @@ CREATE TABLE HistoriaClinica (
     historial_cirugias TEXT,
     id_usuario INT NOT NULL,
     maltratado BOOLEAN NOT NULL,
-    maltrato TEXT,
+    maltrato BOOLEAN NOT NULL,
     medicamentos_alergia TEXT,
     motivo_ingreso TEXT,
     observ_dietaEspecial TEXT,
