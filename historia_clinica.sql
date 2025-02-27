@@ -5,10 +5,13 @@ CREATE TABLE HistoriaClinica (
     alcoholismo BOOLEAN NOT NULL,
     alergico_medicamento BOOLEAN NOT NULL,
     altura INT NOT NULL,
+    apariencia_personal TEXT,
     cafeina BOOLEAN NOT NULL,
     cirugias BOOLEAN NOT NULL,
     comunicacion_no_verbal TEXT,
     comunicacion_verbal TEXT,
+    continencia BOOLEAN NOT NULL,
+    cuidado_personal TEXT,
     discapacidad BOOLEAN NOT NULL,
     emer_medica VARCHAR(30),
     eps VARCHAR(30),
@@ -30,6 +33,9 @@ CREATE TABLE HistoriaClinica (
     tabaquismo BOOLEAN NOT NULL,
     telefono_emermedica VARCHAR(17),
     temperatura_corporal DECIMAL NOT NULL,
+    tipo_alimentacion TEXT,
+    tipo_de_movilidad TEXT,
+    tipo_de_sueno TEXT,
     tipo_sangre ENUM('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-') NOT NULL,
     FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
 );
