@@ -99,6 +99,17 @@ CREATE TABLE IntervencionPorUsuario (
     FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica)
 );
 
+CREATE TABLE VacunasPorUsuario (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_historiaClinica INT,
+    efectos_secundarios TEXT,
+    fecha_administracion DATE,
+    fecha_proxima DATE,
+    vacuna TEXT,
+
+    FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica)
+);
+
 CREATE TABLE TipoMedicamentos (
     id_TipoApoyoTratamiento INT PRIMARY KEY AUTO_INCREMENT,
     nom_Tipoapoyotratamiento TEXT NOT NULL
