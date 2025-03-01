@@ -23,6 +23,7 @@ CREATE TABLE HistoriaClinica (
     maltratado BOOLEAN NOT NULL,
     maltrato BOOLEAN NOT NULL,
     medicamentos_alergia TEXT,
+    dieta_especial TEXT,
     motivo_ingreso TEXT,
     observ_dietaEspecial TEXT,
     observ_otrasalergias TEXT,
@@ -66,13 +67,23 @@ CREATE TABLE TipoCuidadoPersonal (
 );
 
 CREATE TABLE MedicamentosPorUsuario (
-    id_tipoapoyo INT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     id_historiaClinica INT,
+    medicamento TEXT,
     periodicidad TEXT,
     Fecha_inicio DATE,
     fecha_fin DATE,
-    PRIMARY KEY (id_tipoapoyo, id_historiaClinica),
-    FOREIGN KEY (id_tipoapoyo) REFERENCES TipoMedicamentos(id_TipoApoyoTratamiento),
+
+    FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica)
+);
+
+CREATE TABLE CuidadosEnfermeriaPorUsuario (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_historiaClinica INT,
+    diagnostico TEXT,
+    frecuencia TEXT,
+    intervencion TEXT,
+
     FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica)
 );
 
