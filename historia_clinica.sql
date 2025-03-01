@@ -43,31 +43,6 @@ CREATE TABLE HistoriaClinica (
     FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
 );
 
-CREATE TABLE TipoAlimentacion (
-    id_tipoAlimentacion INT PRIMARY KEY AUTO_INCREMENT,
-    nom_tipoalimentacion TEXT NOT NULL
-);
-
-CREATE TABLE TipoSueño (
-    id_tipoSueño INT PRIMARY KEY AUTO_INCREMENT,
-    nom_tipoSueño TEXT NOT NULL
-);
-
-CREATE TABLE TipoContinencia (
-    id_tipoContinencia INT PRIMARY KEY AUTO_INCREMENT,
-    nom_tipoContinencia TEXT NOT NULL
-);
-
-CREATE TABLE TipoMovilidad (
-    id_tipoMovilidad INT PRIMARY KEY AUTO_INCREMENT,
-    nom_tipoMovilidad TEXT NOT NULL
-);
-
-CREATE TABLE TipoCuidadoPersonal (
-    id_tipoCuidadopersonal INT PRIMARY KEY AUTO_INCREMENT,
-    nom_tipocuidadopersonal TEXT NOT NULL
-);
-
 CREATE TABLE MedicamentosPorUsuario (
     id INT PRIMARY KEY AUTO_INCREMENT,
     id_historiaClinica INT,
@@ -75,8 +50,7 @@ CREATE TABLE MedicamentosPorUsuario (
     periodicidad TEXT,
     Fecha_inicio DATE,
     fecha_fin DATE,
-
-    FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica)
+    FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica) ON DELETE CASCADE
 );
 
 CREATE TABLE CuidadosEnfermeriaPorUsuario (
@@ -85,8 +59,7 @@ CREATE TABLE CuidadosEnfermeriaPorUsuario (
     diagnostico TEXT,
     frecuencia TEXT,
     intervencion TEXT,
-
-    FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica)
+    FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica) ON DELETE CASCADE
 );
 
 CREATE TABLE IntervencionPorUsuario (
@@ -95,8 +68,7 @@ CREATE TABLE IntervencionPorUsuario (
     diagnostico TEXT,
     frecuencia TEXT,
     intervencion TEXT,
-
-    FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica)
+    FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica) ON DELETE CASCADE
 );
 
 CREATE TABLE VacunasPorUsuario (
@@ -106,13 +78,7 @@ CREATE TABLE VacunasPorUsuario (
     fecha_administracion DATE,
     fecha_proxima DATE,
     vacuna TEXT,
-
-    FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica)
-);
-
-CREATE TABLE TipoMedicamentos (
-    id_TipoApoyoTratamiento INT PRIMARY KEY AUTO_INCREMENT,
-    nom_Tipoapoyotratamiento TEXT NOT NULL
+    FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica) ON DELETE CASCADE
 );
 
 CREATE TABLE ApoyosPorUsuario (
@@ -123,12 +89,7 @@ CREATE TABLE ApoyosPorUsuario (
     fecha_fin DATE,
     PRIMARY KEY (id_tipoapoyo, id_historiaClinica),
     FOREIGN KEY (id_tipoapoyo) REFERENCES TipoApoyoTratamientos(id_TipoApoyoTratamiento),
-    FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica)
-);
-
-CREATE TABLE TipoApoyoTratamientos (
-    id_TipoApoyoTratamiento INT PRIMARY KEY AUTO_INCREMENT,
-    nom_Tipoapoyotratamiento TEXT NOT NULL
+    FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica) ON DELETE CASCADE
 );
 
 CREATE TABLE EsquemaVacunacion (
@@ -137,12 +98,7 @@ CREATE TABLE EsquemaVacunacion (
     fecha_aplicacion DATE,
     PRIMARY KEY (id_vacuna, id_historiaClinica),
     FOREIGN KEY (id_vacuna) REFERENCES Vacunas(id_vacuna),
-    FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica)
-);
-
-CREATE TABLE Vacunas (
-    id_vacuna INT PRIMARY KEY AUTO_INCREMENT,
-    nom_vacuna TEXT NOT NULL
+    FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica) ON DELETE CASCADE
 );
 
 CREATE TABLE TipoDiscaPorUsuarios (
@@ -151,12 +107,7 @@ CREATE TABLE TipoDiscaPorUsuarios (
     observación TEXT,
     PRIMARY KEY (id_tipodiscapacidad, id_historiaClinica),
     FOREIGN KEY (id_tipodiscapacidad) REFERENCES TipoDiscapacidad(id_tipodiscapacidad),
-    FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica)
-);
-
-CREATE TABLE TipoDiscapacidad (
-    id_tipodiscapacidad INT PRIMARY KEY AUTO_INCREMENT,
-    nomdiscapacidad TEXT NOT NULL
+    FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica) ON DELETE CASCADE
 );
 
 CREATE TABLE TipoLimitPorUsuarios (
@@ -165,10 +116,5 @@ CREATE TABLE TipoLimitPorUsuarios (
     observación TEXT,
     PRIMARY KEY (id_tipolimitacion, id_historiaClinica),
     FOREIGN KEY (id_tipolimitacion) REFERENCES TipoLimitacion(id_tipolimitacion),
-    FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica)
-);
-
-CREATE TABLE TipoLimitacion (
-    id_tipolimitacion INT PRIMARY KEY AUTO_INCREMENT,
-    nomlimitacion TEXT NOT NULL
+    FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica) ON DELETE CASCADE
 );
