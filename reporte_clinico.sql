@@ -1,4 +1,3 @@
-E-- Table: ReportesClinicos
 CREATE TABLE ReportesClinicos (
     id_reporteclinico INT AUTO_INCREMENT PRIMARY KEY,
     id_historiaclinica INT,
@@ -33,50 +32,42 @@ CREATE TABLE ReportesClinicos (
     FOREIGN KEY (id_profesional) REFERENCES Profesionales(id_profesional)
 );
 
--- Table: OrientacionEspacial
 CREATE TABLE OrientacionEspacial (
     id_OrientacionEspacial INT AUTO_INCREMENT PRIMARY KEY,
     nom_OrientacionEspacial TEXT
 );
 
--- Table: ExpresionEmosional
 CREATE TABLE ExpresionEmosional (
     id_expresionemosional INT AUTO_INCREMENT PRIMARY KEY,
     nom_expresionemocional TEXT
 );
 
--- Table: AtencionMemoria
 CREATE TABLE AtencionMemoria (
     id_AtencionMemoria INT AUTO_INCREMENT PRIMARY KEY,
     nom_AtencionMemoria TEXT
 );
 
--- Table: ActitudPresente
 CREATE TABLE ActitudPresente (
     id_ActitudPresente INT AUTO_INCREMENT PRIMARY KEY,
     nom_ActitudPresente TEXT
 );
 
--- Table: ActitudTemporal
 CREATE TABLE ActitudTemporal (
     id_ActitudTemporal INT AUTO_INCREMENT PRIMARY KEY,
     nom_ActidudTemporal TEXT
 );
 
--- Table: TipoReporteClinico
 CREATE TABLE TipoReporteClinico (
     id_TipoReporte INT AUTO_INCREMENT PRIMARY KEY,
     nom_TipoReporte TEXT
 );
 
--- Table: EvolucionesClinicas
 CREATE TABLE EvolucionesClinicas (
     id_TipoReporte INT AUTO_INCREMENT PRIMARY KEY,
     fecha_evolucion DATE,
     observacion_evolucion TEXT
 );
 
--- Table: DocumentoAdjuntoExam
 CREATE TABLE DocumentoAdjuntoExam (
     id_DocumentoAdjunto INT AUTO_INCREMENT PRIMARY KEY,
     ruta_DocumentoAdjunto TEXT,
@@ -85,7 +76,6 @@ CREATE TABLE DocumentoAdjuntoExam (
     Tipo_DocumentoAdjunto TEXT
 );
 
--- Table: Profesionales
 CREATE TABLE Profesionales (
     id_profesional INT AUTO_INCREMENT PRIMARY KEY,
     nombres VARCHAR(35),
