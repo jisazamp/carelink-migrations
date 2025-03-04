@@ -66,8 +66,10 @@ CREATE TABLE TipoReporteClinico (
 
 CREATE TABLE EvolucionesClinicas (
     id_TipoReporte INT AUTO_INCREMENT PRIMARY KEY,
+    id_reporteclinico INT,
     fecha_evolucion DATE,
-    observacion_evolucion TEXT
+    observacion_evolucion TEXT,
+    FOREIGN KEY (id_reporteclinico) REFERENCES ReportesClinicos(id_reporteclinico)
 );
 
 CREATE TABLE DocumentoAdjuntoExam (
