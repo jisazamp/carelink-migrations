@@ -30,7 +30,7 @@ CREATE TABLE ReportesClinicos (
     saturacionOxigeno INT,
     temperatura_corporal FLOAT,
     tipo_reporte TEXT,
-    FOREIGN KEY (id_historiaclinica) REFERENCES HistoriaClinica(id_historiaclinica),
+    FOREIGN KEY (id_historiaclinica) REFERENCES HistoriaClinica(id_historiaclinica) ON DELETE CASCADE,
     FOREIGN KEY (id_profesional) REFERENCES Profesionales(id_profesional)
 );
 
@@ -71,7 +71,7 @@ CREATE TABLE EvolucionesClinicas (
     fecha_evolucion DATE,
     observacion_evolucion TEXT,
     tipo_report TEXT,
-    FOREIGN KEY (id_reporteclinico) REFERENCES ReportesClinicos(id_reporteclinico),
+    FOREIGN KEY (id_reporteclinico) REFERENCES ReportesClinicos(id_reporteclinico) ON DELETE CASCADE,
     FOREIGN KEY (id_profesional) REFERENCES Profesionales(id_profesional)
 );
 
