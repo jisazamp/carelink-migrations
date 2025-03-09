@@ -11,7 +11,7 @@ CREATE TABLE Usuarios (
     ocupacion_quedesempeño TEXT,
     estado_civil ENUM('Soltero', 'Casado', 'Viudo', 'Unión Libre', 'Divorciado'),
     estado ENUM('ACTIVO', 'INACTIVO') DEFAULT 'ACTIVO',
-    fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP, -- Changed to DATETIME
+    fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP,
     lugar_nacimiento VARCHAR(50),
     regimen_seguridad_social VARCHAR(50),
     grado_escolaridad VARCHAR(50),
@@ -23,5 +23,6 @@ CREATE TABLE Usuarios (
     origen_otrocentro VARCHAR(50),
     proteccion_exequial BOOLEAN DEFAULT FALSE,
     nucleo_familiar ENUM('Nuclear', 'Extensa', 'Monoparental', 'Reconstituida'),
+    url_imagen TEXT,
     is_deleted BOOL DEFAULT FALSE
 );
