@@ -48,8 +48,7 @@ CREATE TABLE MedicamentosPorUsuario (
     id_historiaClinica INT,
     medicamento TEXT,
     periodicidad TEXT,
-    Fecha_inicio DATE,
-    fecha_fin DATE,
+    observaciones TEXT,
     FOREIGN KEY (id_historiaClinica) REFERENCES HistoriaClinica(id_historiaclinica) ON DELETE CASCADE
 );
 
