@@ -13,6 +13,7 @@ CREATE TABLE HistoriaClinica (
     continencia BOOLEAN NOT NULL,
     cuidado_personal TEXT,
     dieta_especial TEXT,
+    diagnosticos TEXT,
     discapacidades TEXT,
     emer_medica VARCHAR(30),
     eps VARCHAR(30),
