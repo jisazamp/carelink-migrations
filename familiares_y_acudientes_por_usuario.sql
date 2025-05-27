@@ -1,7 +1,7 @@
 CREATE TABLE familiares_y_acudientes_por_usuario (
     id_acudiente INT NOT NULL,
     id_usuario INT NOT NULL,
-    parentesco ENUM('Padre', 'Madre', 'Hermano', 'Hermana', 'Tío', 'Tía', 'Primo', 'Prima', 'Amigo', 'Otro') NOT NULL,
+    parentesco TEXT,
     
     PRIMARY KEY (id_acudiente, id_usuario),
     
