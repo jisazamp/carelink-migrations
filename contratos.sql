@@ -15,6 +15,15 @@ CREATE TABLE Servicios (
     descripcion TEXT
 );
 
+CREATE TABLE TarifasServicioPorAnio (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_servicio INT,
+    anio YEAR NOT NULL,
+    precio_por_dia DECIMAL(10, 2) NOT NULL,
+
+    FOREIGN KEY (id_servicio) REFERENCES Servicios(id_servicio) ON DELETE CASCADE
+);
+
 CREATE TABLE ServiciosPorContrato (
     id_servicio_contratado INT AUTO_INCREMENT PRIMARY KEY,
     id_contrato INT,
