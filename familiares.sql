@@ -1,12 +1,13 @@
-CREATE TABLE Familiares (
-    id_acudiente INT AUTO_INCREMENT PRIMARY KEY,
-    n_documento VARCHAR(255) NOT NULL,
-    nombres VARCHAR(50) NOT NULL,
-    apellidos VARCHAR(50) NOT NULL,
-    telefono VARCHAR(50),
-    direccion VARCHAR(255),
-    email VARCHAR(50),
-    acudiente BOOL DEFAULT FALSE,
-    vive BOOL DEFAULT FALSE,
-    is_deleted BOOL DEFAULT FALSE
-);
+CREATE TABLE `Familiares` (
+  `id_acudiente` int NOT NULL AUTO_INCREMENT,
+  `n_documento` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nombres` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `apellidos` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telefono` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `direccion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `acudiente` tinyint(1) DEFAULT '0',
+  `vive` tinyint(1) DEFAULT '0',
+  `is_deleted` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id_acudiente`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
