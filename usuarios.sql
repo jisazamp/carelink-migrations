@@ -27,6 +27,7 @@ CREATE TABLE `Usuarios` (
   `nucleo_familiar` enum('Nuclear','Extensa','Monoparental','Reconstituida') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `url_imagen` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `is_deleted` tinyint(1) DEFAULT '0',
+  `visitas_domiciliarias` tinyint(1) DEFAULT '0' COMMENT 'Indica si el usuario fue creado desde el módulo de visitas domiciliarias',
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

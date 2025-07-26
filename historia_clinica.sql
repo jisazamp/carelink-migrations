@@ -41,8 +41,10 @@ CREATE TABLE `HistoriaClinica` (
   `tipo_de_movilidad` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `tipo_de_sueno` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `tipo_sangre` enum('A+','A-','B+','B-','AB+','AB-','O+','O-') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `porte_clinico` text COLLATE utf8mb4_unicode_ci COMMENT 'Campo específico para visitas domiciliarias donde el profesional registra toda la consulta realizada',
   PRIMARY KEY (`id_historiaclinica`),
   KEY `id_usuario` (`id_usuario`),
+  KEY `idx_porte_clinico` (`porte_clinico`(255)),
   CONSTRAINT `HistoriaClinica_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
