@@ -1,8 +1,8 @@
 CREATE TABLE `VisitasDomiciliarias` (
   `id_visitadomiciliaria` int NOT NULL AUTO_INCREMENT,
   `id_contrato` int DEFAULT NULL,
-  `fecha_visita` date NOT NULL,
-  `hora_visita` time NOT NULL,
+  `fecha_visita` date DEFAULT NULL,
+  `hora_visita` time DEFAULT NULL,
   `estado_visita` enum('PENDIENTE','REALIZADA','CANCELADA','REPROGRAMADA') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'PENDIENTE',
   `direccion_visita` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `telefono_visita` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
