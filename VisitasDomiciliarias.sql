@@ -1,0 +1,22 @@
+CREATE TABLE `VisitasDomiciliarias` (
+  `id_visitadomiciliaria` int NOT NULL AUTO_INCREMENT,
+  `id_contrato` int DEFAULT NULL,
+  `fecha_visita` date DEFAULT NULL,
+  `hora_visita` time DEFAULT NULL,
+  `estado_visita` enum('PENDIENTE','REALIZADA','CANCELADA','REPROGRAMADA') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'PENDIENTE',
+  `direccion_visita` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telefono_visita` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `valor_dia` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `observaciones` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `fecha_actualizacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `id_usuario` int DEFAULT NULL COMMENT 'ID del usuario (para visitas sin contrato asignado)',
+  PRIMARY KEY (`id_visitadomiciliaria`),
+  KEY `idx_contrato` (`id_contrato`),
+  KEY `idx_fecha_visita` (`fecha_visita`),
+  KEY `idx_estado_visita` (`estado_visita`),
+  KEY `idx_fecha_creacion` (`fecha_creacion`),
+  KEY `idx_visitas_usuario` (`id_usuario`),
+  CONSTRAINT `fk_visitas_contrato` FOREIGN KEY (`id_contrato`) REFERENCES `Contratos` (`id_contrato`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_visitas_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

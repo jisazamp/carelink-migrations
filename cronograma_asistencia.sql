@@ -16,7 +16,7 @@ CREATE TABLE `cronograma_asistencia_pacientes` (
   `id_cronograma_paciente` int NOT NULL AUTO_INCREMENT,
   `id_cronograma` int NOT NULL,
   `id_usuario` int NOT NULL,
-  `id_contrato` int NOT NULL,
+  `id_contrato` int DEFAULT NULL,
   `estado_asistencia` enum('PENDIENTE','ASISTIO','NO_ASISTIO','CANCELADO','REAGENDADO') COLLATE utf8mb4_unicode_ci DEFAULT 'PENDIENTE',
   `requiere_transporte` tinyint(1) DEFAULT '0',
   `observaciones` text COLLATE utf8mb4_unicode_ci,
