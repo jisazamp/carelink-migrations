@@ -98,6 +98,7 @@ CREATE TABLE `DocumentoAdjuntoExam` (
 
 CREATE TABLE `Profesionales` (
   `id_profesional` int NOT NULL AUTO_INCREMENT,
+  `id_user` int,
   `nombres` varchar(35) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `apellidos` varchar(35) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `n_documento` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -108,8 +109,9 @@ CREATE TABLE `Profesionales` (
   `profesion` enum('Médico','Enfermero','Nutricionista','Psicólogo','Fisioterapeuta') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `especialidad` enum('Cardiología','Pediatría','Nutrición','Psicología Clínica','Fisioterapia') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cargo` enum('Jefe de Departamento','Especialista','Residente') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `telefono` int DEFAULT NULL,
+  `telefono` varchar(35) DEFAULT NULL,
   `e_mail` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `direccion` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id_profesional`)
+  PRIMARY KEY (`id_profesional`),
+  FOREIGN KEY (`id_user`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
