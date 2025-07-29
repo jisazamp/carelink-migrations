@@ -65,10 +65,13 @@ CREATE TABLE `Facturas` (
   `observaciones` text COLLATE utf8mb4_unicode_ci,
   `fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `fecha_actualizacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `id_visita_domiciliaria` int DEFAULT NULL,
   PRIMARY KEY (`id_factura`),
   UNIQUE KEY `numero_factura` (`numero_factura`),
   KEY `id_contrato` (`id_contrato`),
-  CONSTRAINT `Facturas_ibfk_1` FOREIGN KEY (`id_contrato`) REFERENCES `Contratos` (`id_contrato`) ON DELETE CASCADE
+  KEY `idx_facturas_visita_domiciliaria` (`id_visita_domiciliaria`),
+  CONSTRAINT `Facturas_ibfk_1` FOREIGN KEY (`id_contrato`) REFERENCES `Contratos` (`id_contrato`) ON DELETE CASCADE,
+  CONSTRAINT `fk_facturas_visita_domiciliaria` FOREIGN KEY (`id_visita_domiciliaria`) REFERENCES `VisitasDomiciliarias` (`id_visitadomiciliaria`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `DetalleFactura` (

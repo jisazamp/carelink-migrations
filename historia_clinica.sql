@@ -48,7 +48,6 @@ CREATE TABLE `HistoriaClinica` (
   KEY `idx_porte_clinico` (`porte_clinico`(255)),
   KEY `fk_historiaclinica_profesional` (`id_profesional`),
   CONSTRAINT `fk_historiaclinica_profesional` FOREIGN KEY (`id_profesional`) REFERENCES `Profesionales` (`id_profesional`),
-
   CONSTRAINT `HistoriaClinica_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 

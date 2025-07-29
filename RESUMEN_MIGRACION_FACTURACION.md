@@ -174,7 +174,6 @@ python validar_migracion_facturacion.py
 | **Restricciones**        | 4        | Completado |
 | **Modelos actualizados** | 1        | Completado |
 
-
 ---
 
 ## 🎉 **CONCLUSIÓN**
