@@ -1,4 +1,4 @@
-CREATE TABLE `VisitasDomiciliariasporprofesional` (
+CREATE TABLE `VisitasDomiciliariasPorProfesional` (
   `id_visitadomiciliaria` int NOT NULL,
   `id_profesional` int NOT NULL,
   `fecha_asignacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
