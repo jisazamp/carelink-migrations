@@ -30,9 +30,11 @@ CREATE TABLE `ReportesClinicos` (
   `saturacionOxigeno` int DEFAULT NULL,
   `temperatura_corporal` float DEFAULT NULL,
   `tipo_reporte` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `url_adjunto` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT 'URL del archivo adjunto del reporte clínico almacenado en S3',
   PRIMARY KEY (`id_reporteclinico`),
   KEY `id_historiaclinica` (`id_historiaclinica`),
   KEY `id_profesional` (`id_profesional`),
+  KEY `idx_url_adjunto` (`url_adjunto`(255)),
   CONSTRAINT `ReportesClinicos_ibfk_1` FOREIGN KEY (`id_historiaclinica`) REFERENCES `HistoriaClinica` (`id_historiaclinica`) ON DELETE CASCADE,
   CONSTRAINT `ReportesClinicos_ibfk_2` FOREIGN KEY (`id_profesional`) REFERENCES `Profesionales` (`id_profesional`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -98,7 +100,7 @@ CREATE TABLE `DocumentoAdjuntoExam` (
 
 CREATE TABLE `Profesionales` (
   `id_profesional` int NOT NULL AUTO_INCREMENT,
-  `id_user` int,
+  `id_user` int DEFAULT NULL,
   `nombres` varchar(35) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `apellidos` varchar(35) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `n_documento` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -109,9 +111,10 @@ CREATE TABLE `Profesionales` (
   `profesion` enum('Médico','Enfermero','Nutricionista','Psicólogo','Fisioterapeuta') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `especialidad` enum('Cardiología','Pediatría','Nutrición','Psicología Clínica','Fisioterapia') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cargo` enum('Jefe de Departamento','Especialista','Residente') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `telefono` varchar(35) DEFAULT NULL,
+  `telefono` varchar(35) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `e_mail` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `direccion` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id_profesional`),
-  FOREIGN KEY (`id_user`) REFERENCES `users` (`id`)
+  KEY `id_user` (`id_user`),
+  CONSTRAINT `Profesionales_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
