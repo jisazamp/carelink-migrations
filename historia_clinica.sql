@@ -43,10 +43,12 @@ CREATE TABLE `HistoriaClinica` (
   `tipo_sangre` enum('A+','A-','B+','B-','AB+','AB-','O+','O-') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `porte_clinico` text COLLATE utf8mb4_unicode_ci COMMENT 'Campo específico para visitas domiciliarias donde el profesional registra toda la consulta realizada',
   `id_profesional` int DEFAULT NULL,
+  `url_hc_adjunto` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT 'URL del archivo adjunto de la historia clínica almacenado en S3',
   PRIMARY KEY (`id_historiaclinica`),
   KEY `id_usuario` (`id_usuario`),
   KEY `idx_porte_clinico` (`porte_clinico`(255)),
   KEY `fk_historiaclinica_profesional` (`id_profesional`),
+  KEY `idx_url_hc_adjunto` (`url_hc_adjunto`(255)),
   CONSTRAINT `fk_historiaclinica_profesional` FOREIGN KEY (`id_profesional`) REFERENCES `Profesionales` (`id_profesional`),
   CONSTRAINT `HistoriaClinica_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
