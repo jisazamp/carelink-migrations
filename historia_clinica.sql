@@ -41,7 +41,7 @@ CREATE TABLE `HistoriaClinica` (
   `tipo_de_movilidad` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `tipo_de_sueno` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `tipo_sangre` enum('A+','A-','B+','B-','AB+','AB-','O+','O-') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `porte_clinico` text COLLATE utf8mb4_unicode_ci COMMENT 'Campo específico para visitas domiciliarias donde el profesional registra toda la consulta realizada',
+  `porte_clinico` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT 'Campo específico para visitas domiciliarias donde el profesional registra toda la consulta realizada',
   `id_profesional` int DEFAULT NULL,
   `url_hc_adjunto` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT 'URL del archivo adjunto de la historia clínica almacenado en S3',
   PRIMARY KEY (`id_historiaclinica`),
