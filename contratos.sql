@@ -5,7 +5,7 @@ CREATE TABLE `Contratos` (
   `fecha_inicio` date DEFAULT NULL,
   `fecha_fin` date DEFAULT NULL,
   `facturar_contrato` tinyint(1) DEFAULT '0',
-  `estado` enum('ACTIVO','VENCIDO','CANCELADO') COLLATE utf8mb4_unicode_ci DEFAULT 'ACTIVO',
+  `estado` enum('ACTIVO','VENCIDO','CANCELADO') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT 'ACTIVO',
   PRIMARY KEY (`id_contrato`),
   KEY `id_usuario` (`id_usuario`),
   CONSTRAINT `Contratos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id_usuario`)
@@ -53,7 +53,7 @@ CREATE TABLE `FechasServicio` (
 
 CREATE TABLE `Facturas` (
   `id_factura` int NOT NULL AUTO_INCREMENT,
-  `numero_factura` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `numero_factura` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `id_contrato` int DEFAULT NULL,
   `fecha_emision` date DEFAULT NULL,
   `fecha_vencimiento` date DEFAULT NULL,
@@ -61,8 +61,8 @@ CREATE TABLE `Facturas` (
   `subtotal` decimal(10,2) DEFAULT '0.00',
   `impuestos` decimal(10,2) DEFAULT '0.00',
   `descuentos` decimal(10,2) DEFAULT '0.00',
-  `estado_factura` enum('PENDIENTE','PAGADA','VENCIDA','CANCELADA','ANULADA') COLLATE utf8mb4_unicode_ci DEFAULT 'PENDIENTE',
-  `observaciones` text COLLATE utf8mb4_unicode_ci,
+  `estado_factura` enum('PENDIENTE','PAGADA','VENCIDA','CANCELADA','ANULADA') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT 'PENDIENTE',
+  `observaciones` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `fecha_actualizacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_visita_domiciliaria` int DEFAULT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE `DetalleFactura` (
   `subtotal_linea` decimal(10,2) DEFAULT '0.00',
   `impuestos_linea` decimal(10,2) DEFAULT '0.00',
   `descuentos_linea` decimal(10,2) DEFAULT '0.00',
-  `descripcion_servicio` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `descripcion_servicio` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id_detalle_factura`),
   KEY `id_factura` (`id_factura`),
   KEY `id_servicio_contratado` (`id_servicio_contratado`),
